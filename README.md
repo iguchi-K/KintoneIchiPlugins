@@ -46,22 +46,13 @@ ThemePaletteは、Kintoneアプリの見た目を美しくカスタマイズで�
 3. プラグイン設定画面で好みのカラーパレットを選択
 4. アプリを更新してテーマを適用
 
-### カスタマイズ可能な要素
+### カスタマイズされる要素
 - アプリタイトルバー（グラデーション背景）
 - フォームラベルとコントロール
 - テーブル（サブテーブル含む）
 - グループフィールド
 - 区切り線
 - ボーダーとシャドウ
-
-## 機能
-
-- 🚀 **柔軟なビルド対応**: Vite 型と従来型プラグインの両方をサポート
-- 📝 **自動プラグイン生成**: 基本的な Kintone プラグイン構造を自動生成
-- 🔐 **自動証明書生成**: プラグイン署名用の.ppk ファイルを自動生成
-- ⚡ **高速開発**: Vite 型ではホットモジュール置換と最適化されたビルド
-- 🔒 **コード難読化**: 本番ビルド用のオプションコード難読化
-- 📦 **自動パッケージング**: ビルド後の自動 zip 化と配布用ファイル生成
 
 ## 前提条件
 
@@ -73,8 +64,8 @@ ThemePaletteは、Kintoneアプリの見た目を美しくカスタマイズで�
 1. リポジトリをクローン:
 
 ```bash
-git clone https://github.com/ichi-hashK/create-ichi-kintone-plugins.git
-cd create-ichi-kintone-plugins
+git clone https://github.com/iguchi-K/KintoneIchiPlugins.git
+cd KintoneIchiPlugins 
 ```
 
 2. 依存関係をインストール:
