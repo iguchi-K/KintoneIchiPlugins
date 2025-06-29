@@ -1,0 +1,37 @@
+{
+  "manifest_version": 1,
+  "version": "1.0.0",
+  "type": "APP",
+  "desktop": {
+    "css": [
+      "css/main.css"
+    ],
+    "js": [
+      "js/desktop.js"
+    ]
+  },
+  "icon": "image/icon.png",
+  "config": {
+    "html": "html/config.html",
+    "css": [],
+    "js": [
+      "js/config.js"
+    ]
+  },
+  "name": {
+    "en": "ThemePalette - Kintone Color Theme Customizer",
+    "ja": "ThemePalette - Kintoneカラーテーマカスタマイザー"
+  },
+  "description": {
+    "en": "Transform your Kintone app with 16 color themes.",
+    "ja": "16種類のカラーテーマでKintoneアプリの見た目をカスタマイズします。"
+  },
+  "mobile": {
+    "css": [
+      "css/main.css"
+    ],
+    "js": [
+      "js/mobile.js"
+    ]
+  }
+}

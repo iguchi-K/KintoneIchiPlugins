@@ -1,6 +1,58 @@
-# create-ichi-kintone-plugins
+# KintoneIchiPlugins
 
-Kintone プラグイン開発用の CLI ツールです。Vite を使用したモダンなビルドと従来型の両方に対応しています。
+Kintoneの自作プラグインを提供しています。美しいテーマカスタマイズから実用的な機能拡張まで、Kintoneアプリをより使いやすく、見た目も美しくするプラグインを開発・配布しています。
+
+## 含まれるプラグイン
+
+| プラグイン名 | 説明 | 種類 |
+|-------------|------|------|
+| ThemePalette | Kintoneアプリの色テーマをカスタマイズできるプラグイン。16種類の美しいカラーパレットから選択可能。 | Vite型 |
+
+## ThemePalette プラグイン
+
+### 概要
+ThemePaletteは、Kintoneアプリの見た目を美しくカスタマイズできる色テーマプラグインです。16種類のカラーパレットから選択でき、アプリのタイトルバー、フォーム、テーブルなどの要素を統一されたデザインで彩ります。
+
+### 機能
+- 🎨 **16種類のカラーパレット**: pink、bluegray、navyBlue、greige、mintgreen、lavender、pastelyellow、darkgray、silver、beige、mossgreen、olive、vividorange、limegreen、turquoise
+- 🎯 **統一されたデザイン**: アプリタイトルバー、フォーム要素、テーブル、グループフィールドなどが選択したテーマで統一
+- ⚡ **軽量で高速**: Viteを使用した最適化されたビルド
+- 📱 **レスポンシブ対応**: デスクトップ・モバイル両方に対応
+- 🔧 **簡単設定**: プラグイン設定画面からワンクリックでテーマ変更
+
+### カラーパレット一覧
+
+| テーマ名 | メインカラー | 特徴 |
+|---------|-------------|------|
+| pink | #ff99cc | 優しいピンク系 |
+| bluegray | rgb(96, 125, 139) | 落ち着いたブルーグレー |
+| navyBlue | #0d6efd | ビジネス向けネイビー |
+| greige | #8b7355 | 上品なグレージュ |
+| mintgreen | #20c997 | 爽やかなミントグリーン |
+| lavender | #6f42c1 | エレガントなラベンダー |
+| pastelyellow | #ffc107 | 明るいパステルイエロー |
+| darkgray | #495057 | モダンなダークグレー |
+| silver | #c0c0c0 | クールなシルバー |
+| beige | #f5f5dc | 温かみのあるベージュ |
+| mossgreen | #8fbc8f | 自然なモスグリーン |
+| olive | #808000 | クラシックなオリーブ |
+| vividorange | #ff6600 | エネルギッシュなオレンジ |
+| limegreen | #32cd32 | 鮮やかなライムグリーン |
+| turquoise | #40e0d0 | トロピカルなターコイズ |
+
+### 使用方法
+1. プラグインをKintoneにアップロード
+2. アプリにプラグインを追加
+3. プラグイン設定画面で好みのカラーパレットを選択
+4. アプリを更新してテーマを適用
+
+### カスタマイズ可能な要素
+- アプリタイトルバー（グラデーション背景）
+- フォームラベルとコントロール
+- テーブル（サブテーブル含む）
+- グループフィールド
+- 区切り線
+- ボーダーとシャドウ
 
 ## 機能
 
@@ -16,7 +68,7 @@ Kintone プラグイン開発用の CLI ツールです。Vite を使用した�
 - Node.js 18.0.0 以上
 - npm 8.0.0 以上
 
-## インストール
+## セットアップ
 
 1. リポジトリをクローン:
 
@@ -31,192 +83,14 @@ cd create-ichi-kintone-plugins
 npm install
 ```
 
-## 使用方法
-
-### 新しい Kintone プラグインを作成
+3. ThemePaletteプラグインをビルド:
 
 ```bash
-npm run create <プラグイン名>
+npm run build ThemePalette
 ```
 
-#### 例
+これで`dist/ThemePalette/ThemePalette.zip`が生成され、Kintoneにアップロードして使用できます。
 
-```bash
-npm run create my-awesome-plugin
-```
-
-これにより以下が実行されます:
-
-1. `packages/my-awesome-plugin`ディレクトリを作成
-2. 基本的な Kintone プラグイン構造をセットアップ
-3. プラグイン署名用の`.ppk`ファイルを生成
-4. 必要な設定ファイルを配置
-
-## プラグインの種類
-
-このツールは 2 種類のプラグインをサポートしています：
-
-### 1. Vite 型プラグイン（モダン）
-
-- `vite.config.js`が存在する場合
-- Vite を使用した高速なビルド
-- ホットモジュール置換対応
-- TypeScript 対応
-- 最適化されたバンドル
-
-### 2. 従来型プラグイン（シンプル）
-
-- `vite.config.js`が存在しない場合
-- `src/`フォルダの内容をそのまま使用
-- 追加のビルド処理なし
-- シンプルな構成で軽量
-
-## プロジェクト構造
-
-```
-create-ichi-kintone-plugins/
-├── packages/           # 生成されたプラグイン
-│   ├── sample/         # 従来型プラグインの例
-│   │   ├── src/        # ソースコード
-│   │   │   ├── js/     # JavaScriptファイル
-│   │   │   ├── css/    # CSSファイル
-│   │   │   ├── html/   # HTMLファイル
-│   │   │   ├── image/  # 画像ファイル
-│   │   │   └── manifest.json
-│   │   └── *.ppk       # プラグイン証明書
-│   └── <プラグイン名>/  # Vite型プラグイン
-│       ├── src/        # ソースコード
-│       ├── dist/       # ビルドされたファイル（一時的）
-│       ├── vite.config.js
-│       ├── package.json
-│       └── *.ppk       # プラグイン証明書
-├── dist/               # 配布用ファイル
-│   └── <プラグイン名>/
-│       └── <プラグイン名>.zip
-├── scripts/
-│   ├── create-plugin.js # プラグイン作成スクリプト
-│   └── build-plugin.js  # ビルド・難読化・パッケージングスクリプト
-├── obfuscator.config.js # 難読化設定
-├── package.json
-└── README.md
-```
-
-## プラグインのビルド
-
-### プラグインのビルド
-
-```bash
-# 通常ビルド（難読化なし）
-npm run build <プラグイン名>
-
-# 難読化付きビルド
-npm run build <プラグイン名> --secret
-```
-
-#### 例
-
-```bash
-# 通常ビルド
-npm run build sample
-
-# 難読化付きビルド
-npm run build sample --secret
-```
-
-### ビルド処理の詳細
-
-#### Vite 型プラグインの場合
-
-1. **Vite ビルド**: `npm run build`を実行
-2. **コード難読化**: `--secret`フラグがある場合のみ JavaScript ファイルを難読化
-3. **プラグイン zip 化**: `@kintone/plugin-packer`で zip 作成
-4. **配布用ファイル生成**: `dist/<プラグイン名>/<プラグイン名>.zip`に配置
-5. **一時ファイル削除**: 各プラグインの`dist/`フォルダを削除
-
-#### 従来型プラグインの場合
-
-1. **ソースコピー**: `src/`の内容を`dist/`にコピー
-2. **コード難読化**: `--secret`フラグがある場合のみ JavaScript ファイルを難読化（`dist/`配下のjsを再帰的に処理）
-3. **プラグイン zip 化**: `@kintone/plugin-packer`で zip 作成
-4. **配布用ファイル生成**: `dist/<プラグイン名>/<プラグイン名>.zip`に配置
-5. **一時ファイル削除**: 各プラグインの`dist/`フォルダを削除
-
-### コード難読化について
-
-- **`--secret`フラグ**: Vite型・従来型どちらのプラグインでも、`--secret`フラグを付けてビルドするとJavaScriptファイルが難読化されます。
-- **難読化設定**: `obfuscator.config.js`でカスタマイズ可能
-- **難読化しない場合**: `--secret`フラグを付けなければ難読化は行われません
-
-### ビルド成果物
-
-- **配布用 zip**: `dist/<プラグイン名>/<プラグイン名>.zip`
-- この zip ファイルを Kintone にアップロードして使用
-
-## 開発
-
-### 利用可能なスクリプト
-
-- `npm run create <名前>` - 新しいプラグインを作成
-- `npm run build <名前>` - プラグインをビルド・パッケージング
-- `npm run build <名前> --secret` - プラグインをビルド・難読化・パッケージング（Vite型のみ）
-
-### 難読化設定
-
-`obfuscator.config.js`で難読化の設定をカスタマイズできます：
-
-```javascript
-export default {
-  compact: true,
-  controlFlowFlattening: true,
-  controlFlowFlatteningThreshold: 0.75,
-  deadCodeInjection: true,
-  deadCodeInjectionThreshold: 0.4,
-  debugProtection: false,
-  debugProtectionInterval: 0,
-  disableConsoleOutput: true,
-  identifierNamesGenerator: "hexadecimal",
-  log: false,
-  numbersToExpressions: true,
-  renameGlobals: false,
-  selfDefending: true,
-  simplify: true,
-  splitStrings: true,
-  splitStringsChunkLength: 10,
-  stringArray: true,
-  stringArrayEncoding: ["base64"],
-  stringArrayThreshold: 0.75,
-  transformObjectKeys: true,
-  unicodeEscapeSequence: false,
-};
-```
-
-## プラグインのデプロイ
-
-1. `npm run build <プラグイン名>`でプラグインをビルド
-2. 生成された`dist/<プラグイン名>/<プラグイン名>.zip`を Kintone インスタンスにアップロード
-3. プラグインを有効化して使用開始
-
-## プラグイン開発のベストプラクティス
-
-### Vite 型プラグイン（推奨）
-
-- 複雑な機能や多数のファイルがある場合
-- TypeScript を使用したい場合
-- モジュール分割や最適化が必要な場合
-
-### 従来型プラグイン
-
-- シンプルな機能の場合
-- 軽量なプラグインを作りたい場合
-- 既存の Kintone プラグインを移植する場合
-
-## トラブルシューティング
-
-### よくある問題
-
-1. **ビルドエラー**: プラグイン名が正しく指定されているか確認
-2. **ppk ファイルが見つからない**: `npm run create`でプラグインを正しく作成したか確認
-3. **Vite ビルドエラー**: `vite.config.js`の設定を確認
 
 ## ライセンス
 
@@ -227,3 +101,7 @@ export default {
 - [Kintone Plugin Packer](https://github.com/kintone/js-sdk/tree/main/packages/plugin-packer) - プラグインのパッケージングと署名用
 - [Vite](https://vitejs.dev/) - ビルドツール用
 - [JavaScript Obfuscator](https://obfuscator.io/) - コード難読化用
+
+## アイコンについて
+
+ThemePaletteプラグインで使用しているアイコンファイル（`packages/ThemePalette/src/image/icon.png`）は、プロジェクト作成者がAIによって生成したもので、自由に使っていただいて構いません。
