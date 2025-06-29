@@ -1,0 +1,162 @@
+// 色テーマを適用するミックスイン
+@mixin theme-colors($theme-name) {
+    $theme: map.get($themes, $theme-name);
+
+    --main-color: #{map.get($theme, main)};
+    --dark-color: #{map.get($theme, dark)};
+    --light-color: #{map.get($theme, light)};
+    --bg-color: #{map.get($theme, bg)};
+    --border-color: #{map.get($theme, border)};
+    --text-dark: #{map.get($theme, text-dark)};
+    --shadow-color: #{map.get($theme, shadow)};
+}
+
+// デフォルトテーマのスタイル
+.ichi-theme {
+    @include theme-colors($default-theme);
+
+    // 各色テーマクラス
+    &.theme-pink {
+        @include theme-colors(pink);
+    }
+
+    &.theme-bluegray {
+        @include theme-colors(bluegray);
+    }
+
+    &.theme-navyBlue {
+        @include theme-colors(navyBlue);
+    }
+
+    &.theme-greige {
+        @include theme-colors(greige);
+    }
+
+    &.theme-mintgreen {
+        @include theme-colors(mintgreen);
+    }
+
+    &.theme-lavender {
+        @include theme-colors(lavender);
+    }
+
+    &.theme-pastelyellow {
+        @include theme-colors(pastelyellow);
+    }
+
+    &.theme-darkgray {
+        @include theme-colors(darkgray);
+    }
+
+    &.theme-silver {
+        @include theme-colors(silver);
+    }
+
+    &.theme-beige {
+        @include theme-colors(beige);
+    }
+
+    &.theme-mossgreen {
+        @include theme-colors(mossgreen);
+    }
+
+    &.theme-olive {
+        @include theme-colors(olive);
+    }
+
+    &.theme-vividorange {
+        @include theme-colors(vividorange);
+    }
+
+    &.theme-limegreen {
+        @include theme-colors(limegreen);
+    }
+
+    &.theme-turquoise {
+        @include theme-colors(turquoise);
+    }
+}
+
+// 共通スタイル
+.gaia-argoui-app-titlebar {
+    background: linear-gradient(90deg, var(--main-color), var(--light-color));
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.gaia-argoui-app-titlebar h2 a {
+    color: var(--dark-color);
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px 1px #ffffff;
+}
+
+.control-value-label-gaia,
+.control-label-text-gaia,
+.subtable-row-label-gaia,
+.group-label-gaia {
+    color: var(--dark-color);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.subtable-gaia {
+    border-radius: 12px;
+    background-color: var(--bg-color);
+}
+
+.subtable-label-gaia {
+    background-color: var(--light-color) !important;
+    color: var(--text-dark) !important;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.subtable-gaia thead {
+    background-color: var(--light-color);
+}
+
+.subtable-gaia th,
+.subtable-gaia td {
+    border: 1px solid var(--main-color) !important;
+    padding: 10px;
+}
+
+.subtable-gaia tr {
+    background-color: #ffffff;
+}
+
+.control-value-gaia {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 10px !important;
+}
+
+.hr-cybozu {
+    border: 2px dashed var(--main-color) !important;
+}
+
+.control-group-field-gaia {
+    background-color: var(--bg-color);
+    border: 2px dashed var(--main-color) !important;
+    border-radius: 16px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+#record-gaia {
+    background-color: #ffffff !important;
+}
+
+.layout-gaia,
+.control-label-gaia,
+.control-gaia,
+.subtable-row-label-gaia {
+    background-color: #ffffff !important;
+}
+
+.control-value-gaia {
+    background-color: var(--bg-color) !important;
+}
